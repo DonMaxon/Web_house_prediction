@@ -188,7 +188,11 @@ def makeScaler(scaler: MlScaler):
     newScaler.with_std=scaler.with_std
     return newScaler
 
-@app.route('/action', methods = ['POST', 'GET'])
+@app.route('/back', methods = ['GET'])
+def back():
+    return render_template('index.html')
+
+@app.route('/action', methods = ['POST'])
 def check_extraction_model():
     if request.method=='POST':
         num_of_rooms = int(request.form['num_of_rooms'])
@@ -211,7 +215,7 @@ def check_extraction_model():
         pred = newLR.predict(data)
         value = pred[0]
         print(value)
-        return render_template('value is'+str(value))
+        return render_template('result.html', value=value[0])
 
 # @app.route('/action', methods = ['POST', 'GET'])
 # def save_model():
