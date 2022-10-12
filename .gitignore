@@ -1,0 +1,6 @@
+# created by virtualenv automatically
+*.idea
+target/
+Lib/
+Scripts/
+House_Rent_Dataset.csv
